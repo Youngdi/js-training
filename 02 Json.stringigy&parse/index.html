@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>02 Json.stringigy&parse</title>
+	<style>
+		body{
+			text-align: center;
+			transform: translateY(30%);
+    		font-family: "微軟正黑體";
+		}
+		h3{
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<h2>透過JSON.stringify&JSON.parse轉成字串及轉回物件使用(成果按下F12看console.log)</h2>
+	<h3>var country=[{farmer:"卡斯柏"}];</h3>
+	<h4>創造陣列</h4>
+	<h3>var countryString =JSON.stringify(country);</h3>
+	<h4>轉成字串</h4>
+	<h3>localStorage.setItem('countryItem',countryString);</h3>
+	<h4>設定localStorage的值</h4>
+	<h3>var getData = localStorage.getItem('countryItem');</h3>
+	<h4>取出localStorage的值</h4>
+	<h3>var getDataAry = JSON.parse(getData);</h3>
+	<h4>轉成物件(objet)</h4>
+	<h3>console.log(getDataAry[0].farmer);</h3>
+	<h4>使用需要物件</h4>
+	<script src="all.js"></script>
+</body>
+</html>

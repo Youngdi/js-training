@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>04 data+array應用</title>
+	<link rel="stylesheet" href="style.css">
+<body>
+	<ul class="list">
+	</ul>
+
+	<h3>var country =[
+	{
+		farmer:'卡斯柏'
+	},
+	{	
+		farmer:'查理'	
+	}
+]</h3>
+	<h4>// 創建陣列</h4>
+	<h3>var list = document.querySelector('.list');</h3>
+	<h4>// 宣告變數=要選擇的元素</h4>
+	<h3>var el = document.createElement('h2');</h3>
+	<h4>// 創建陣列用的h2</h4>
+	<h3>function updataList(){</h3>
+	<h3>var str ='';</h3>
+	<h4>// 創建一個空值</h4>
+	<h3>var len =country.length;</h3>
+	<h4>// 計算陣列的長度</h4>
+	<h3>for(var i=0;len>i;i++){
+		str+='<ㄟ瞜唉 data-num="'+i+'">'+country[i].farmer+'<ㄟ瞜唉>'
+	}</h3>
+	<h4>// for迴圈,取出陣列裡農夫的資料+li</h4>
+	<h3>list.innerHTML = str;}</h3>
+	<h4>// 使用innerHTML載入</h4>
+	<h3>updataList();</h3>
+	<h4>//執行function</h4>
+	<h3>function checkList(e){</h3>
+	<h3>var num = e.target.dataset.num;</h3>
+	<h4>//宣告變數,找出data-num的值</h4>
+	<h3>if(e.target.nodeName !== 'LI'){return}</h3>
+	<h4>//for迴圈,判斷是否點擊li</h4>
+	<h3>el.textContent='你選擇的農夫是'+country[num].farmer;</h3>
+	<h4>//有點擊li,輸入內容</h4>
+	<h3>document.querySelector('.list').appendChild(el);}</h3>
+	<h4>//動態加入內容</h4>
+	<h3>list.addEventListener('click',checkList,false);</h3>
+	<h4>執行是否點及li的事件</h4>
+	<script src="all.js"></script>
+</body>
+</html>

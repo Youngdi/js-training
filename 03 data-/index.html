@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>03 data-</title>
+	<link rel="stylesheet" href="style.css">
+<body>
+	<ul class="list">
+		<li>
+			<h2>農夫卡斯柏</h2>
+		</li>
+		<li class="listli">
+			<input type="button" value="卡斯柏的資料" class="listbtn" data-num="0" data-dog="3">
+		</li>
+	</ul>
+	<h3>var list =document.querySelector('.listbtn');</h3>
+	<h4>// 宣告變數選擇.listbtn</h4>
+	<h3>var el = document.createElement('h3');</h3>
+	<h4>// 創建num用的h3</h4>
+	<h3>var ex = document.createElement('h3');</h3>
+	<h4>// 創建dog用的h3</h4>
+	<h3>function checkList(e){</h3>
+	<h3>var num = e.target.dataset.num;</h3>
+	<h4>// 找出num的資料,使用dataset.num</h4>
+	<h3>var dog = e.target.dataset.dog;</h3>
+	<h4>// 找出dog的資料,使用dataset.dog</h4>
+	<h3>el.textContent ="卡斯柏的編號是"+num;</h3>
+	<h4>// 輸入內容</h4>
+	<h3>ex.textContent ="他有"+dog+"隻狗";</h3>
+	<h4>// 輸入內容</h4>
+	<h3>document.querySelector('.list').appendChild(el);</h3>
+	<h4>//決定要把他放在哪裡</h4>
+	<h3>document.querySelector('.list').appendChild(ex);</h3>
+	<h4>//決定要把他放在哪裡</h4>
+	<h3>}</h3>
+	<h4>//創建function</h4>
+	<h3>list.addEventListener('click',checkList,false)</h3>
+	<h4>//監聽click事件</h4>
+	<script src="all.js"></script>
+</body>
+</html>
