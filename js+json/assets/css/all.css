@@ -10,7 +10,7 @@ body{
 }
 .bg-cover{
     background-size: cover;
-    background-position: center center;
+    background-position: bottom center;
 }
 .btn-light{
     background-color: #ffffffb2;
