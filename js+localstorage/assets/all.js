@@ -6,7 +6,7 @@ var litleCircle = document.querySelector('.litlecircle');
 var Numbers = document.querySelector('.numbers');
 var Report = document.querySelector('.report');
 var newData = document.querySelector('.newdata');
-var recordStyle =document.querySelector('.record')
+var recordStyle =document.querySelector('.record');
 var data = JSON.parse(localStorage.getItem('listData')) || [];
 //時間變量
 var dt = new Date();
@@ -28,13 +28,13 @@ function refresh(e) {
 }
 //結果的事件
 function count(e) {
+    if (BMIresult == true){
     e.preventDefault();
     var Height = document.querySelector('.height').value;
     var Kg = document.querySelector('.kg').value;
     var BMI = Kg / ((Height / 100) * (Height / 100));
     var BMIresult = BMI.toFixed(2);
     var Time = month + '-' + day + '-' + year;
-    var recordStyle = document.querySelector('.record');
     Result.style.display = "none";
     Circleop.style.display = "flex";
     Numbers.textContent = BMIresult;
@@ -70,6 +70,9 @@ function count(e) {
         litleCircle.style.backgroundColor = "#b11004";
         Report.textContent = "重度肥胖";        
     };
+    } else {
+        alert('請輸入數字');
+    } ;
 
 var record = {
     BMIstatus: Report.textContent,
@@ -84,6 +87,7 @@ localStorage.setItem('listData', JSON.stringify(data));
 };
 //寫下事件
 function updateList(items) {
+    if (BMIresult == true){
     str = '';
     var len = items.length;
     for (var i = 0; len > i; i++) {
@@ -95,7 +99,10 @@ function updateList(items) {
             '<div class="col-md-2 recorditems"><a href="#" class="my-0 h6 btn btn-dark toggle">刪除記錄</a></div></div>' 
         ;
     }
-    newData.innerHTML = str;
+    newData.innerHTML = str;}
+    else{
+        str = '';
+    }
 }
 function toggleDone(e) {
     e.preventDefault();
