@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>BMI製做器</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="BMIcount bg-dark d-flex align-items-center justify-content-around flex-wrap">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <img src="img/BMICLogo.png" alt="" class="">
+                </div>
+                <div class="col-md-4 d-flex justify-content-md-start justify-content-center mt-3 mt-md-0 ">
+                    <ul class="list-unstyled text-yellow w-100">
+                        <li>
+                            <p class="text-yellow my-0">身高 cm</p>
+                        </li>
+                        <li>
+                            <input type="text" value="" placeholder="請輸入身高" class="text-number height">
+                        </li>
+                        <li>
+                            <p class="text-yellow my-0 mt-3">體重 kg</p>
+                        </li>
+                        <li>
+                            <input type="text" value="" placeholder="請輸入體重" class="text-number kg">
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 d-flex justify-content-md-start justify-content-center mt-3 mt-md-0 flex-wrap">
+                    <input type="button" class="result" value="看結果">
+                    <div class="circleOP justify-content-center">
+                        <div class="circle">
+                            <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <p class="mt-4 mb-0 numbers"></p>
+                                <p class=" BMIsize">BMI</p>
+                            </div>
+                            <div class="litlecircle">
+                                <i class="fa fa-refresh" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="align-self-center ml-3 report"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">
+        <h2 class="mt-5">BMI 記錄</h2>
+
+        <div class="row newdata">
+            
+        </div>
+    </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
