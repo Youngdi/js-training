@@ -28,17 +28,16 @@ function refresh(e) {
 }
 //結果的事件
 function count(e) {
-    if (BMIresult == true){
     e.preventDefault();
     var Height = document.querySelector('.height').value;
     var Kg = document.querySelector('.kg').value;
     var BMI = Kg / ((Height / 100) * (Height / 100));
     var BMIresult = BMI.toFixed(2);
     var Time = month + '-' + day + '-' + year;
+    if (0<=BMIresult){
     Result.style.display = "none";
     Circleop.style.display = "flex";
     Numbers.textContent = BMIresult;
-
     if (BMIresult < 18.50) {
         CircleS.style.border = "6px solid #fffaaf";
         Circleop.style.color = "#fffaaf";
@@ -64,15 +63,16 @@ function count(e) {
         Circleop.style.color = "#f52d1b";
         litleCircle.style.backgroundColor = "#f52d1b";
         Report.textContent = "中度肥胖";
-    } else{
+    } else if(35<= BMIresult ){
         CircleS.style.border = "6px solid #b11004";
         Circleop.style.color = "#b11004";
         litleCircle.style.backgroundColor = "#b11004";
         Report.textContent = "重度肥胖";        
-    };
+    }
     } else {
         alert('請輸入數字');
-    } ;
+    };
+
 
 var record = {
     BMIstatus: Report.textContent,
@@ -86,8 +86,8 @@ updateList(data);
 localStorage.setItem('listData', JSON.stringify(data));
 };
 //寫下事件
+
 function updateList(items) {
-    if (BMIresult == true){
     str = '';
     var len = items.length;
     for (var i = 0; len > i; i++) {
@@ -96,14 +96,10 @@ function updateList(items) {
             '<div class="col-md-2 recorditems "><p class="my-0 h6">weight</p><p class="my-0 h4 ml-2">' + items[i].KgValue + '</p></div>'+
             '<div class="col-md-2 recorditems "><p class="my-0 h6">height</p><p class="my-0 h4 ml-2">' + items[i].HeightValue + '</p></div>' +
             '<div class="col-md-2 recorditems"><p class="my-0 h6">' + items[i].TimeValue + '</p></div>' +
-            '<div class="col-md-2 recorditems"><a href="#" class="my-0 h6 btn btn-dark toggle">刪除記錄</a></div></div>' 
-        ;
-    }
-    newData.innerHTML = str;}
-    else{
-        str = '';
-    }
-}
+            '<div class="col-md-2 recorditems"><a href="#" class="my-0 h6 btn btn-dark toggle">刪除記錄</a></div></div>' ;
+    };
+    newData.innerHTML = str;
+};
 function toggleDone(e) {
     e.preventDefault();
     if (e.target.nodeName !== 'A') { return };
@@ -111,4 +107,4 @@ function toggleDone(e) {
     data.splice(index, 1);
     localStorage.setItem('listData', JSON.stringify(data));
     updateList(data);
-}
+};
