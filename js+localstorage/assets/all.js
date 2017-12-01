@@ -23,17 +23,25 @@ updateList(data);
 
 //重來的事件
 function refresh(e) {
+    document.querySelector('.height').value = null;
+    document.querySelector('.kg').value = null;
     Result.style.display = "block";
     Circleop.style.display = "none";
 }
 //結果的事件
+
 function count(e) {
     e.preventDefault();
     var Height = document.querySelector('.height').value;
     var Kg = document.querySelector('.kg').value;
+    if (!Height || !Kg) {
+        alert('請輸入數字');
+        return;
+    }
     var BMI = Kg / ((Height / 100) * (Height / 100));
     var BMIresult = BMI.toFixed(2);
     var Time = month + '-' + day + '-' + year;
+    var color = '';
     if (0<=BMIresult){
     Result.style.display = "none";
     Circleop.style.display = "flex";
@@ -43,43 +51,47 @@ function count(e) {
         Circleop.style.color = "#fffaaf";
         litleCircle.style.backgroundColor = "#fffaaf";
         Report.textContent = "過輕";
+        color = "#fffaaf";
     } else if (18.50 <= BMIresult && BMIresult < 24.00) {
         CircleS.style.border = "6px solid #78d406";
         Circleop.style.color = "#78d406";
         litleCircle.style.backgroundColor = "#78d406";
         Report.textContent = "理想";
+        color = "#78d406";
     } else if (24.00 <= BMIresult && BMIresult < 27.00) {
         CircleS.style.border = "6px solid #f59f16";
         Circleop.style.color = "#f59f16";
         litleCircle.style.backgroundColor = "#f59f16";
         Report.textContent = "過重";
+        color = "#f59f16";
     } else if (27.00 <= BMIresult && BMIresult < 30.00) {
         CircleS.style.border = "6px solid #f56816";
         Circleop.style.color = "#f56816";
         litleCircle.style.backgroundColor = "#f56816";
         Report.textContent = "輕度肥胖";
+        color = "#f56816";
     } else if (30.00 <= BMIresult && BMIresult < 35.00) {
         CircleS.style.border = "6px solid #f52d1b";
         Circleop.style.color = "#f52d1b";
         litleCircle.style.backgroundColor = "#f52d1b";
         Report.textContent = "中度肥胖";
+        color = "#f52d1b";
     } else if(35<= BMIresult ){
         CircleS.style.border = "6px solid #b11004";
         Circleop.style.color = "#b11004";
         litleCircle.style.backgroundColor = "#b11004";
-        Report.textContent = "重度肥胖";        
+        Report.textContent = "重度肥胖";      
+        color = "#b11004";  
     }
-    } else {
-        alert('請輸入數字');
-    };
-
+} 
 
 var record = {
     BMIstatus: Report.textContent,
     BMInumber: BMIresult,
     HeightValue: Height,
     KgValue: Kg,
-    TimeValue: Time
+    TimeValue: Time,
+    color: color,
 };
 data.push(record);
 updateList(data);
@@ -91,7 +103,7 @@ function updateList(items) {
     str = '';
     var len = items.length;
     for (var i = 0; len > i; i++) {
-        str += '<div class="col-12 mt-3 record" data-index='+ i +'><div class="col-md-2 py-2 "><h3 class="my-0">' + items[i].BMIstatus+'</h3></div>'+
+        str += '<div class="col-12 mt-3 record" style="border-color: '+ items[i].color + '" data-index='+ i +'><div class="col-md-2 py-2 "><h3 class="my-0">' + items[i].BMIstatus+'</h3></div>'+
             '<div class="col-md-2 recorditems "><p class="my-0 h6">BMI</p><p class="my-0 h4 ml-2">' + items[i].BMInumber +'</p></div>'+
             '<div class="col-md-2 recorditems "><p class="my-0 h6">weight</p><p class="my-0 h4 ml-2">' + items[i].KgValue + '</p></div>'+
             '<div class="col-md-2 recorditems "><p class="my-0 h6">height</p><p class="my-0 h4 ml-2">' + items[i].HeightValue + '</p></div>' +
